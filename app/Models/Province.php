@@ -13,4 +13,29 @@ class Province extends Model
     public function getAllData() {
         return DB::table('provinces')->where('disabled', 0)->get();
     }
+    public function getData($id) {
+        return DB::table('provinces')
+            ->where('disabled', 0)
+            ->where('id', $id)
+            ->first();
+    }
+
+    public function insertData($data) {
+        return DB::table('provinces')->insert($data);
+    }
+    public function updateData($data, $id) {
+        return DB::table('provinces')
+            ->where('id', $id)
+            ->update($data);
+    }
+    public function softDeleteData($data, $id) {
+        return DB::table('provinces')
+            ->where('id', $id)
+            ->update($data);
+    }
+    public function deleteData($id) {
+        return DB::table('provinces')
+            ->where('id', $id)
+            ->delete();
+    }
 }

@@ -17,7 +17,7 @@ class CreateWardsTable extends Migration
             $table->id();
             $table->string('code');
             $table->string('name');
-            $table->string('postcode')->nullable();
+            $table->string('post_code')->nullable();
 
             // Foreign Key
             $table->foreignId('district_id')->constraints();
